@@ -190,7 +190,7 @@
 		return publicMethods;
 	}])
 
-	.factory('localStorage', ['$window', 'storage', function ($window, storage) {
+	.factory('localStorage', ['$window', '$cookieStore', 'storage', function ($window, $cookieStore, storage) {
 		var storageUsed = (typeof $window.localStorage === 'undefined') ? $cookieStore : $window.localStorage;
 		return new __storageCaller(storageUsed, storage);
 	}])
